@@ -25,7 +25,7 @@ const App = () => {
   },[])
   return (
     <div className="App">
-      <p>Your Weekly Weather</p>
+      <p>Your Weekly LA Weather Journal</p>
       { weeklyForecast.length > 0 && <Cards weeklyForecast={weeklyForecast}/> }
     </div>
   );
