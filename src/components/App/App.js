@@ -2,9 +2,11 @@ import { useState, useEffect } from "react"
 import './App.css';
 import Cards from '../Cards/Cards'
 import convertTemp from '../../util'
+import Switch from '../Switch/Switch'
 
 const App = () => {
   const [weeklyForecast, setWeeklyForecast ] = useState([])
+  const [ isChecked, setIsChecked ] = useState(false)
 
   useEffect(() => {
     const getData = () => {
@@ -24,8 +26,9 @@ const App = () => {
     getData()
   },[])
   return (
-    <div className="App">
+    <div className= {!isChecked ? "App" : "AppDark"}>
       <p>Your Weekly LA Weather Journal</p>
+      <Switch isChecked={isChecked} setIsChecked={setIsChecked}/>
       { weeklyForecast.length > 0 && <Cards weeklyForecast={weeklyForecast}/> }
     </div>
   );
