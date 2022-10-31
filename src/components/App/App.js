@@ -3,6 +3,7 @@ import './App.css';
 import Cards from '../Cards/Cards'
 import convertTemp from '../../util'
 import Switch from '../Switch/Switch'
+import Brewery from '../Brewery/Brewery'
 
 const App = () => {
   const [weeklyForecast, setWeeklyForecast ] = useState([])
@@ -48,10 +49,11 @@ const App = () => {
     }
   },[breweries])
 
+
   return (
     <div className= {!isChecked ? "App" : "AppDark"}>
       <p>Your Weekly LA Weather Journal</p>
-      {randomBrewery && <p>{randomBrewery}</p>}
+      {randomBrewery && <Brewery breweries={breweries} setRandomBrewery={setRandomBrewery} randomBrewery={randomBrewery}/>}
       <Switch isChecked={isChecked} setIsChecked={setIsChecked}/>
       { weeklyForecast.length > 0 && <Cards weeklyForecast={weeklyForecast}/> }
     </div>
